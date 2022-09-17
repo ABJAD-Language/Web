@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "lexer": "apps/lexer",
+    "lexer-e2e": "apps/lexer-e2e"
+  }
+}

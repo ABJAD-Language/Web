@@ -1,0 +1,43 @@
+@import "../../styles/mixins";
+
+.analysis {
+  @include col;
+
+  //height: 40vh !important;
+  margin: 1rem auto;
+
+  width: 50vw !important;
+  @media (max-width: 800px) {
+    width: 90vw !important;
+  }
+
+  abjad-code-input,
+  abjad-syntax-highlighter {
+    width: 100%;
+  }
+
+  .tokens {
+    @include row;
+    direction: ltr;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .centered {
+    align-self: center;
+  }
+
+  abjad-syntax-highlighter {
+    margin-bottom: 1rem;
+  }
+
+  .edit-action {
+    margin-bottom: .5rem;
+    align-self: end;
+
+    span {
+      display: unset;
+    }
+  }
+
+}

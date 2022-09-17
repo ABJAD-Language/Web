@@ -1,0 +1,17 @@
+<div class="analysis">
+  <ng-template *ngIf="tokens.length != 0; then syntaxHighlighter; else codeInput"></ng-template>
+  <div class="tokens">
+    <abjad-token *ngFor="let token of tokens" [lexicalToken]="token" (focused)="handleTokenFocused($event)" (unFocused)="handleTokenUnfocused($event)"></abjad-token>
+  </div>
+  <ng-template [ngIf]="error">
+    <abjad-lexical-error [error]="error"></abjad-lexical-error>
+  </ng-template>
+</div>
+
+<ng-template #syntaxHighlighter>
+  <button nz-button nzType="primary" nzShape="circle" (click)="editMode()" class="edit-action"><span nz-icon nzType="edit"></span></button>
+  <abjad-syntax-highlighter *ngIf="tokens.length != 0" [tokens]="tokens" [focusedToken]="focusedToken" class="centered"></abjad-syntax-highlighter>
+</ng-template>
+<ng-template #codeInput>
+  <abjad-code-input (codeChange)="onCodeChange($event)" [code]="code" class="centered"></abjad-code-input>
+</ng-template>

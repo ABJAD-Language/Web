@@ -1,0 +1,26 @@
+@import "styles/mixins";
+
+body {
+  background: rgba(0, 0, 0, 0.02) !important;
+}
+
+.box {
+  height: 40vh !important;
+  //width: 50vw !important;
+  outline: none;
+  resize: none;
+  padding: 0.75rem 1.25rem !important;
+  font-size: 1.2rem !important;
+  border: none;
+  background: white !important;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+}
+
+.rounded {
+  @include rounded;
+}
+
+.shadow {
+  @include shadow;
+}
