@@ -42,6 +42,8 @@ export class SyntaxHighlighterComponent implements OnInit, OnChanges {
   getTokenContent(token: LexicalTokenModel) : string {
     if (token.type == 'STRING_CONST') {
       return `"${token.content}"`
+    } else if (token.type == 'COMMENT') {
+      return `#${token.content}`
     }
 
     return token.content
