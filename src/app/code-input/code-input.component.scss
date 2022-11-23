@@ -1,0 +1,18 @@
+@import "../../styles/mixins";
+
+textarea {
+  border: none;
+  resize: none;
+  outline: none;
+  height: unset;
+}
+
+.col {
+  @include col;
+}
+
+.analyze-action {
+  align-self: end;
+  margin-bottom: .5rem;
+}
+

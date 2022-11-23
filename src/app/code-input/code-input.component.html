@@ -1,0 +1,16 @@
+<div class="col">
+
+  <div class="analyze-action">
+    <button nz-button nzType="primary" nzShape="circle" (click)="onRunCode()">
+      <span nz-icon nzType="caret-right" nzTheme="outline"></span>
+    </button>
+  </div>
+
+  <textarea
+    id="editing"
+    nz-input nzBorderless
+    [(ngModel)]="code"
+    class="box shadow rounded"
+  ></textarea>
+
+</div>
