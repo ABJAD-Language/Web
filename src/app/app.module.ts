@@ -20,6 +20,8 @@ import {TokenModule} from "./token/token.module";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzAlertModule} from "ng-zorro-antd/alert";
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import {ParserService} from "./parsing/parser.service";
+import { ParsingAnalysisComponent } from './parsing/parsing-analysis.component';
 
 registerLocaleData(en);
 
@@ -30,6 +32,7 @@ registerLocaleData(en);
     LexicalAnalysisComponent,
     SyntaxHighlighterComponent,
     LexicalErrorComponent,
+    ParsingAnalysisComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ registerLocaleData(en);
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
-    LexicalAnalyzerService
+    LexicalAnalyzerService,
+    ParserService
   ],
   bootstrap: [AppComponent]
 })

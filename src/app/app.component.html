@@ -10,14 +10,15 @@
       <nz-tab nzTitle="Lexical Analysis">
         <abjad-lexical-analysis [tokens]="tokens" (tokenFocused)="handleTokenFocused($event)" (tokenUnfocused)="handleTokenUnfocused($event)"></abjad-lexical-analysis>
       </nz-tab>
-      <nz-tab nzTitle="Parsed Bindings">bla bla</nz-tab>
+      <nz-tab nzTitle="Parsed Bindings">
+        <abjad-parsing-analysis [bindings]="bindings"></abjad-parsing-analysis>
+      </nz-tab>
     </nz-tabset>
 
   </div>
 </div>
 
 <ng-template #syntaxHighlighter>
-<!--  <button nz-button nzType="primary" nzShape="circle" (click)="editMode()" class="edit-action"><span nz-icon nzType="edit"></span></button>-->
   <abjad-syntax-highlighter *ngIf="tokens.length != 0" (editMode)="onEditMode()" [tokens]="tokens" [focusedToken]="focusedToken" class="centered"></abjad-syntax-highlighter>
 </ng-template>
 <ng-template #codeInput>
