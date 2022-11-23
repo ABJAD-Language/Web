@@ -1,0 +1,21 @@
+@import "../../styles/mixins";
+
+.analysis {
+  @include col;
+
+  @media (max-width: 800px) {
+    width: 90vw !important;
+  }
+
+  .tokens {
+    @include row;
+    direction: ltr;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .centered {
+    align-self: center;
+  }
+
+}

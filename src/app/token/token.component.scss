@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+
+.token {
+  padding: .25rem;
+  margin: .25rem;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-cyan-main;
+    border-color: $color-cyan-main;
+    color: white;
+  }
+}
+

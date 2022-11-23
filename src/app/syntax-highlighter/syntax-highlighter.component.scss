@@ -1,0 +1,30 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+div {
+  code {
+    white-space: pre;
+    border: 1px dashed white;
+  }
+}
+
+.rounded {
+  @include rounded;
+}
+
+.shadow {
+  @include shadow;
+}
+
+.focused {
+  border: 1px dashed $color-cyan-main !important;
+}
+
+.col {
+  @include col;
+}
+
+.edit-action {
+  align-self: end;
+  margin-bottom: .5rem;
+}

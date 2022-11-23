@@ -1,0 +1,14 @@
+@import "../styles/mixins";
+
+.main-interpreter {
+  margin: 20px;
+  @include formatted-row;
+
+  .code-window {
+    width: 45%;
+  }
+
+  .analysis-window {
+    width: 50%;
+  }
+}
