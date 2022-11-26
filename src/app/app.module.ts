@@ -25,7 +25,7 @@ import { ParsingAnalysisComponent } from './parsing/parsing-analysis.component';
 import { BindingComponent } from './parsing/binding/binding.component';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
-import {AbjadErrorComponent} from "./lexical-error/abjad-error.component";
+import {AbjadErrorComponent} from "./error/abjad-error.component";
 import { NzModalModule } from 'ng-zorro-antd/modal';
 
 registerLocaleData(en);
