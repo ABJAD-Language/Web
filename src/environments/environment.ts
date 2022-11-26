@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  lexerServiceEndpoint: 'https://mohammed.ezzedine.me/abjad/lexer/api', // TODO
-  parserServiceEndpoint: 'https://mohammed.ezzedine.me/abjad/parser/api'
+  lexerServiceEndpoint: '/abjad/lexer/api',
+  parserServiceEndpoint: '/abjad/parser/api'
 };
 
 /*
