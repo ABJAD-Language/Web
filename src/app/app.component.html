@@ -1,12 +1,7 @@
-<!---->
 <div class="main-interpreter">
-  <div class="code-window">
-    <ng-template *ngIf="tokens.length != 0; then syntaxHighlighter; else codeInput"></ng-template>
-  </div>
-
   <div class="analysis-window">
 
-    <nz-tabset>
+    <nz-tabset nzCentered>
       <nz-tab nzTitle="Lexical Analysis">
         <abjad-lexical-analysis [tokens]="tokens" (tokenFocused)="handleTokenFocused($event)" (tokenUnfocused)="handleTokenUnfocused($event)"></abjad-lexical-analysis>
       </nz-tab>
@@ -14,8 +9,15 @@
         <abjad-parsing-analysis [bindings]="bindings"></abjad-parsing-analysis>
       </nz-tab>
     </nz-tabset>
-
   </div>
+
+  <div class="code-window">
+    <ng-template *ngIf="tokens.length != 0; then syntaxHighlighter; else codeInput"></ng-template>
+    <ng-template [ngIf]="error">
+      <abjad-error [error]="error"></abjad-error>
+    </ng-template>
+  </div>
+
 </div>
 
 <ng-template #syntaxHighlighter>

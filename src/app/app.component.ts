@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import {LexicalAnalyzerService} from "./lexical-analysis/lexical-analyzer.service";
 import {LexicalTokenModel} from "./lexical-analysis/lexical-token.model";
-import {LexicalError} from "./lexical-analysis/lexical-error";
 import {ParserService} from "./parsing/parser.service";
 import { mergeMap } from 'rxjs/operators';
+import {AbjadError} from "./lexical-error/abjad-error";
 
 @Component({
   selector: 'app-root',
@@ -15,13 +15,32 @@ export class AppComponent {
               private parser: ParserService) {
   }
 
-  code = 'اكتب("مرحبا بالعالم")؛';
+  // code = 'اكتب("مرحبا بالعالم")؛';
+  code = `صنف انسان {
+    متغير مقطع الاسم؛
+
+  متغير رقم العمر؛
+
+  منشئ(مقطع اسم، رقم عمر) {
+  الاسم = اسم؛
+  العمر = عمر؛
+}
+
+
+دالة تعريف(): لاشيئ {
+  اكتب("انسان[العمر: " + العمر + "، الاسم: " + الاسم + "]")؛
+}
+
+}
+
+متغير انسان محمد = انشئ انسان("محمد"، 22)؛`
+
 
   tokens: LexicalTokenModel[] = [];
   bindings: any[] = [];
   focusedToken: LexicalTokenModel | undefined;
 
-  error: LexicalError | undefined;
+  error: AbjadError | undefined;
 
   ngOnInit(): void {
     this.analyzeCode();

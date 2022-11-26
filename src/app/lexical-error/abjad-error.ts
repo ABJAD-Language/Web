@@ -1,4 +1,4 @@
-export interface LexicalError {
+export interface AbjadError {
   arabicMessage: string;
   englishMessage: string;
 }
