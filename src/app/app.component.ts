@@ -15,26 +15,7 @@ export class AppComponent {
               private parser: ParserService) {
   }
 
-  // code = 'اكتب("مرحبا بالعالم")؛';
-  code = `صنف انسان {
-    متغير مقطع الاسم؛
-
-  متغير رقم العمر؛
-
-  منشئ(مقطع اسم، رقم عمر) {
-  الاسم = اسم؛
-  العمر = عمر؛
-}
-
-
-دالة تعريف(): لاشيئ {
-  اكتب("انسان[العمر: " + العمر + "، الاسم: " + الاسم + "]")؛
-}
-
-}
-
-متغير انسان محمد = انشئ انسان("محمد"، 22)؛`
-
+  code = ''
 
   tokens: LexicalTokenModel[] = [];
   bindings: any[] = [];
@@ -49,6 +30,10 @@ export class AppComponent {
   analyzeCode() {
     this.error = undefined;
     this.tokens = [];
+    this.bindings = [];
+
+    if (this.code == '') return
+
     this.analyzer.analyzeCode(this.code)
       .pipe(
         mergeMap(data => {

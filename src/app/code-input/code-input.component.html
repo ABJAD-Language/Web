@@ -6,6 +6,10 @@
     </button>
   </div>
 
+  <button class="fullScreenButton" nz-button nzType="text" (click)="showCodeInFullScreenMode()">
+    <span nz-icon nzType="fullscreen" nzTheme="outline"></span>
+  </button>
+
   <textarea
     id="editing"
     nz-input nzBorderless
@@ -14,3 +18,15 @@
   ></textarea>
 
 </div>
+
+<nz-modal [(nzVisible)]="isFullScreen" (nzOnCancel)="closeFullScreen()"
+          nzFooter=" " nzDirection="rtl" nzClassName="fullScreenCode">
+  <ng-container *nzModalContent>
+    <textarea
+      id="editing-fullscreen"
+      nz-input nzBorderless
+      [(ngModel)]="code"
+      class="box"
+    ></textarea>
+  </ng-container>
+</nz-modal>

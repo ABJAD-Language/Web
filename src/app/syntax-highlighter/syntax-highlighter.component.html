@@ -6,8 +6,23 @@
     </button>
   </div>
 
+  <button class="fullScreenButton" nz-button nzType="text" (click)="showCodeInFullScreenMode()">
+    <span nz-icon nzType="fullscreen" nzTheme="outline"></span>
+  </button>
   <div class="box rounded shadow">
-    <code *ngFor="let token of tokens" [id]="'line-' + token.line + '-index-' + token.index">{{getTokenContent(token)}}</code>
+
+    <code *ngFor="let token of tokens"
+          [id]="'line-' + token.line + '-index-' + token.index">{{getTokenContent(token)}}</code>
   </div>
 
 </div>
+
+<nz-modal [(nzVisible)]="fullScreen" (nzOnCancel)="closeFullScreen()"
+          nzFooter=" " nzDirection="rtl" nzClassName="fullScreenCode">
+  <ng-container *nzModalContent>
+    <div class="box">
+      <code *ngFor="let token of tokens"
+            [id]="'line-' + token.line + '-index-' + token.index">{{getTokenContent(token)}}</code>
+    </div>
+  </ng-container>
+</nz-modal>

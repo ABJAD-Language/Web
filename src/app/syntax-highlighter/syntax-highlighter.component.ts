@@ -13,6 +13,8 @@ export class SyntaxHighlighterComponent implements OnInit, OnChanges {
   @Input() focusedToken: LexicalTokenModel | undefined;
   @Output() editMode = new EventEmitter();
 
+  fullScreen = false;
+
   ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -52,5 +54,13 @@ export class SyntaxHighlighterComponent implements OnInit, OnChanges {
 
   onEditMode() {
     this.editMode.emit();
+  }
+
+  showCodeInFullScreenMode() {
+    this.fullScreen = true
+  }
+
+  closeFullScreen() {
+    this.fullScreen = false;
   }
 }

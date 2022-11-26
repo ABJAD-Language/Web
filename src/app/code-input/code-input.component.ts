@@ -9,6 +9,8 @@ import {LexicalTokenModel} from "../lexical-analysis/lexical-token.model";
 export class CodeInputComponent implements OnInit {
   constructor() {}
 
+  isFullScreen = false;
+
   @Input() code = '';
   @Input() focusedToken: LexicalTokenModel | undefined;
   @Output() runCode = new EventEmitter<string>();
@@ -18,5 +20,13 @@ export class CodeInputComponent implements OnInit {
 
   onRunCode() {
     this.runCode.emit(this.code)
+  }
+
+  showCodeInFullScreenMode() {
+    this.isFullScreen = true
+  }
+
+  closeFullScreen() {
+    this.isFullScreen = false;
   }
 }

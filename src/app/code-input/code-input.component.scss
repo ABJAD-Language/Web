@@ -18,3 +18,21 @@ textarea {
   margin-bottom: .5rem;
 }
 
+.fullScreenButton {
+  position: absolute;
+}
+
+::ng-deep .fullScreenCode{
+  width: 80% !important;
+  height: 70% !important;
+  direction: rtl;
+
+  .ant-modal-content,
+  .ant-modal-body {
+    height: 100%;
+
+    .box {
+      height: 100% !important;
+    }
+  }
+}
