@@ -7,7 +7,7 @@ COPY package*.json /app/
 RUN npm install
 
 COPY . /app/
-RUN npm run build --base-href /abjad/interpreter/
+RUN npm run build
 
 FROM nginx:alpine
 
