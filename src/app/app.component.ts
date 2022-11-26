@@ -3,7 +3,7 @@ import {LexicalAnalyzerService} from "./lexical-analysis/lexical-analyzer.servic
 import {LexicalTokenModel} from "./lexical-analysis/lexical-token.model";
 import {ParserService} from "./parsing/parser.service";
 import { mergeMap } from 'rxjs/operators';
-import {AbjadError} from "./lexical-error/abjad-error";
+import {AbjadError} from "./error/abjad-error";
 
 @Component({
   selector: 'app-root',
@@ -59,6 +59,7 @@ export class AppComponent {
 
   onEditMode() {
     this.tokens = [];
+    this.bindings = [];
     this.focusedToken = undefined;
   }
 
