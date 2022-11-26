@@ -2,7 +2,4 @@
   <div class="tokens">
     <abjad-token *ngFor="let token of tokens" [lexicalToken]="token" (focused)="handleTokenFocused($event)" (unFocused)="handleTokenUnfocused($event)"></abjad-token>
   </div>
-  <ng-template [ngIf]="error">
-    <abjad-lexical-error [error]="error"></abjad-lexical-error>
-  </ng-template>
 </div>

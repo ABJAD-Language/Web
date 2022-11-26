@@ -1,0 +1,46 @@
+<nz-collapse nzGhost nzSize="small">
+  <nz-collapse-panel
+    [nzHeader]="binding?.type"
+  >
+
+    <div class="field" *ngFor="let field of getFields()">
+      {{field}} : {{ binding[field]}}
+    </div>
+
+    <div *ngFor="let childKey of getChildrenListsOfNonBindings()">
+      <nz-collapse nzGhost>
+        <nz-collapse-panel
+          [nzHeader]="childKey"
+        >
+            <div *ngFor="let child of binding[childKey]">
+              <div class="field" *ngFor="let field of getFields(child)">
+                {{field}} : {{ child[field]}}
+              </div>
+              <nz-divider></nz-divider>
+            </div>
+        </nz-collapse-panel>
+      </nz-collapse>
+    </div>
+
+    <nz-collapse nzGhost>
+      <nz-collapse-panel
+        *ngFor="let field of getChildrenBindings()"
+        [nzHeader]="field"
+      >
+        <abjad-binding [binding]="binding[field]"></abjad-binding>
+      </nz-collapse-panel>
+    </nz-collapse>
+
+    <nz-collapse nzGhost>
+      <nz-collapse-panel
+        *ngFor="let fieldList of getChildrenListOfBindings()"
+        [nzHeader]="fieldList"
+      >
+        <div *ngFor="let field of binding[fieldList]">
+          <abjad-binding [binding]="field"></abjad-binding>
+        </div>
+      </nz-collapse-panel>
+    </nz-collapse>
+  </nz-collapse-panel>
+
+</nz-collapse>

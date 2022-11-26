@@ -5,10 +5,12 @@ textarea {
   resize: none;
   outline: none;
   height: unset;
+  text-align: right;
 }
 
 .col {
   @include col;
+  direction: rtl;
 }
 
 .analyze-action {

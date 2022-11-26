@@ -14,14 +14,18 @@ import {LexicalAnalyzerService} from "./lexical-analysis/lexical-analyzer.servic
 import {NzIconModule} from "ng-zorro-antd/icon";
 import {LexicalAnalysisComponent} from "./lexical-analysis/lexical-analysis.component";
 import {SyntaxHighlighterComponent} from "./syntax-highlighter/syntax-highlighter.component";
-import {LexicalErrorComponent} from "./lexical-analysis/lexical-error/lexical-error.component";
 import {CodeInputModule} from "./code-input/code-input.module";
 import {TokenModule} from "./token/token.module";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzAlertModule} from "ng-zorro-antd/alert";
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzTreeModule } from 'ng-zorro-antd/tree';
 import {ParserService} from "./parsing/parser.service";
 import { ParsingAnalysisComponent } from './parsing/parsing-analysis.component';
+import { BindingComponent } from './parsing/binding/binding.component';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import {AbjadErrorComponent} from "./lexical-error/abjad-error.component";
 
 registerLocaleData(en);
 
@@ -31,8 +35,9 @@ registerLocaleData(en);
 
     LexicalAnalysisComponent,
     SyntaxHighlighterComponent,
-    LexicalErrorComponent,
+    AbjadErrorComponent,
     ParsingAnalysisComponent,
+    BindingComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,10 @@ registerLocaleData(en);
     NzButtonModule,
     NzIconModule,
     NzAlertModule,
-    NzTabsModule
+    NzTabsModule,
+    NzTreeModule,
+    NzCollapseModule,
+    NzDividerModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

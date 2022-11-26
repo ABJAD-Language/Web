@@ -22,6 +22,8 @@ div {
 
 .col {
   @include col;
+
+  direction: rtl;
 }
 
 .edit-action {
