@@ -11,7 +11,7 @@ export class BindingComponent {
 
   getFields(element: any = this.binding) {
     if (!element) return [];
-    return Object.keys(element).filter(k => k != "type" && !Array.isArray(element[k]) && !this.isBinding(element[k]));
+    return Object.keys(element).filter(k => k != "_type" && !Array.isArray(element[k]) && !this.isBinding(element[k]));
   }
 
   getChildrenBindings() {
@@ -30,6 +30,6 @@ export class BindingComponent {
   }
 
   private isBinding( element: any) {
-    return element && Object.keys(element).includes("type");
+    return element && Object.keys(element).includes("_type");
   }
 }
