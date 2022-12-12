@@ -1,6 +1,6 @@
 <nz-collapse nzGhost nzSize="small">
   <nz-collapse-panel
-    [nzHeader]="binding?.type"
+    [nzHeader]="binding?._type"
   >
 
     <div class="field" *ngFor="let field of getFields()">
