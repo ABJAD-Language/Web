@@ -36,6 +36,7 @@ export class AppComponent {
     this.error = undefined;
     this.tokens = [];
     this.bindings = [];
+    this.output = '';
 
     if (this.code == '') return
 
@@ -74,6 +75,7 @@ export class AppComponent {
   onEditMode() {
     this.tokens = [];
     this.bindings = [];
+    this.output = '';
     this.focusedToken = undefined;
   }
 
