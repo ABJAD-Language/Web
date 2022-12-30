@@ -27,6 +27,9 @@ import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import {AbjadErrorComponent} from "./error/abjad-error.component";
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import {InterpreterService} from "./interpreting/interpreter.service";
+import { InterpretationOutputComponent } from './interpreting/interpretation-output/interpretation-output.component';
+import {NzSpinModule} from "ng-zorro-antd/spin";
 
 registerLocaleData(en);
 
@@ -39,6 +42,7 @@ registerLocaleData(en);
     AbjadErrorComponent,
     ParsingAnalysisComponent,
     BindingComponent,
+    InterpretationOutputComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,12 +59,14 @@ registerLocaleData(en);
     NzTreeModule,
     NzCollapseModule,
     NzDividerModule,
-    NzModalModule
+    NzModalModule,
+    NzSpinModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
     LexicalAnalyzerService,
-    ParserService
+    ParserService,
+    InterpreterService
   ],
   bootstrap: [AppComponent]
 })

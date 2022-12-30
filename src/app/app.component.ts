@@ -4,6 +4,7 @@ import {LexicalTokenModel} from "./lexical-analysis/lexical-token.model";
 import {ParserService} from "./parsing/parser.service";
 import { mergeMap } from 'rxjs/operators';
 import {AbjadError} from "./error/abjad-error";
+import {InterpreterService} from "./interpreting/interpreter.service";
 
 @Component({
   selector: 'app-root',
@@ -12,14 +13,18 @@ import {AbjadError} from "./error/abjad-error";
 })
 export class AppComponent {
   constructor(private analyzer: LexicalAnalyzerService,
-              private parser: ParserService) {
+              private parser: ParserService,
+              private interpreter: InterpreterService) {
   }
 
   code = ''
 
   tokens: LexicalTokenModel[] = [];
   bindings: any[] = [];
+  output: string = '';
   focusedToken: LexicalTokenModel | undefined;
+
+  loading: boolean = false;
 
   error: AbjadError | undefined;
 
@@ -34,17 +39,26 @@ export class AppComponent {
 
     if (this.code == '') return
 
+    this.loading = true;
     this.analyzer.analyzeCode(this.code)
       .pipe(
         mergeMap(data => {
           this.tokens = data;
           return this.parser.parseTokens(data);
+        }),
+        mergeMap(bindings => {
+          this.bindings = bindings
+          return this.interpreter.interpretBindings(bindings)
         })
       ).subscribe({
-        next: bindings => {
-          this.bindings = bindings
+        next: result => {
+          this.output = result.output
+          this.loading = false;
         },
-        error: response => this.error = response.error
+        error: response => {
+          this.error = response.error;
+          this.loading = false;
+        }
       });
   }
 

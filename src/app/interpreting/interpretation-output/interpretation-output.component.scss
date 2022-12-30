@@ -1,0 +1,19 @@
+@import "~src/styles/mixins";
+
+.output {
+  padding: 20px;
+  margin-top: 20px;
+  direction: rtl;
+  white-space: pre-wrap;
+
+  h3 {
+    @include row();
+    width: 100%;
+    justify-content: space-between;
+    text-decoration: underline;
+  }
+
+  nz-spin {
+    text-align: center;
+  }
+}
