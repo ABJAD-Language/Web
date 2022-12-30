@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   lexerServiceEndpoint: 'https://mohammed.ezzedine.me/abjad/lexer/api',
-  parserServiceEndpoint: 'https://mohammed.ezzedine.me/abjad/parser/api'
+  parserServiceEndpoint: 'https://mohammed.ezzedine.me/abjad/parser/api',
+  interpreterServiceEndpoint: 'https://mohammed.ezzedine.me/abjad/interpreter/api'
 };
 
 /*

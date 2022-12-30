@@ -1,0 +1,11 @@
+<div class="output">
+  <h3>
+    <span>نتاج</span>
+    <span>Output</span>
+  </h3>
+
+  <nz-spin nzSimple [nzSpinning]="loading"></nz-spin>
+  <div *ngIf="!loading">
+    {{ output }}
+  </div>
+</div>
