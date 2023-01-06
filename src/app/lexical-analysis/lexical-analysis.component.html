@@ -1,5 +1,7 @@
 <div class="analysis">
   <div class="tokens">
-    <abjad-token *ngFor="let token of tokens" [lexicalToken]="token" (focused)="handleTokenFocused($event)" (unFocused)="handleTokenUnfocused($event)"></abjad-token>
+    <abjad-token *ngFor="let token of getTokensExcludingSpaces()" [lexicalToken]="token"
+                 (focused)="handleTokenFocused($event)" (unFocused)="handleTokenUnfocused($event)"
+    ></abjad-token>
   </div>
 </div>

@@ -19,4 +19,8 @@ export class LexicalAnalysisComponent {
   handleTokenUnfocused(token: LexicalTokenModel) {
     this.tokenUnfocused.emit(token)
   }
+
+  getTokensExcludingSpaces() {
+    return this.tokens.filter(t => t.type != 'WHITE_SPACE')
+  }
 }
